@@ -8,6 +8,7 @@ public class OrderSystem {
         Meals();
     }
 
+     // Displays a welcome message and the diner's name.
     public static void WelcomeSign() {
         System.out.println("--------------------------------------------");
         System.out.println("***         RIE'S DINER             *** ");
@@ -16,7 +17,9 @@ public class OrderSystem {
         System.out.println("What would you like to order, Dear customer?");
         System.out.println("\n--------------------------------------------");
     }
-
+    
+      // The Main Menu for different food categories and handles user input using Switch & Scanner.
+    
     public static void Meals() {
         System.out.println("***             MEAL             *** ");
         System.out.println("____________________________________________");
@@ -52,6 +55,7 @@ public class OrderSystem {
         }
     }
 
+    // ArrayLists to store the ordered items, their prices, and quantities
     static ArrayList<String> orderItems = new ArrayList<>();
     static ArrayList<Double> orderPrices = new ArrayList<>();
     static ArrayList<Integer> orderQuantities = new ArrayList<>();
@@ -93,6 +97,7 @@ public class OrderSystem {
                 return;
         }
 
+         // Prompts for quantity and adds the item to the order lists
         int quantity = getQuantity();
         orderItems.add(dish);
         orderPrices.add(price);
@@ -100,7 +105,7 @@ public class OrderSystem {
         System.out.println("\n--------------------------------------------");
         System.out.println(quantity + " x " + dish + " added to your order.");
         System.out.println("--------------------------------------------");
-        
+
         orderMore();
     }
 
@@ -149,6 +154,7 @@ public class OrderSystem {
         System.out.println("\n--------------------------------------------");
         System.out.println(quantity + " x " + dish + " added to your order.");
         System.out.println("--------------------------------------------");
+            
         orderMore();
     }
     
@@ -197,6 +203,7 @@ public class OrderSystem {
         System.out.println("\n--------------------------------------------");
         System.out.println(quantity + " x " + dish + " added to your order.");
         System.out.println("--------------------------------------------");
+        
         orderMore();
     }
 
@@ -245,9 +252,11 @@ public class OrderSystem {
         System.out.println("\n--------------------------------------------");
         System.out.println(quantity + " x " + dish + " added to your order.");
         System.out.println("--------------------------------------------");
+        
         ;orderMore();
     }
-
+     
+    // Asks the user if they want to order more
      public static void orderMore() {
 
         Scanner scanner = new Scanner(System.in);
@@ -263,14 +272,16 @@ public class OrderSystem {
      }
 
     
-
+     // Displays the current items in the order and their total price.
+     // also Allows the user to confirm the order or go back to the menu.
+     
     public static void viewOrder() {
         if (orderItems.isEmpty()) {
             System.out.println("Your order is empty.");
             Meals(); 
             return;
         }
-
+    
         System.out.println("\n--- Your Order ---");
         double totalPrice = 0;
         for (int i = 0; i < orderItems.size(); i++) {
@@ -298,7 +309,8 @@ public class OrderSystem {
                 viewOrder();
         }
     } 
-    
+
+     // Confirms the order, displays a thank you message, and clears the order.
     public static void confirmOrder(double totalPrice) { 
         System.out.println("\n--------------------------------------------");
         System.out.println("\nThank you for your order!");
@@ -321,7 +333,8 @@ public class OrderSystem {
         }
         scanner.close();
     }
-    
+
+    // Asks the user for the quantity of an item and validates the input.
      public static int getQuantity() { 
         Scanner scanner = new Scanner(System.in);
         int quantity;
@@ -339,6 +352,7 @@ public class OrderSystem {
         return quantity;
     }
 }
+
 
 
 
